@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Usuario;
+use App\User;
 use App\Models\Endereco;
 
 class UsersTableSeeder extends Seeder
@@ -33,7 +34,11 @@ class UsersTableSeeder extends Seeder
             'telefone' => '(41) 1234-5678',
             'endereco_id' => '13',
         ]);
-        
-        
+
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => 'admin',
+        ]);        
     }
 }

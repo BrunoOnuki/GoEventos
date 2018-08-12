@@ -20,7 +20,7 @@ class CreateUsuariosTable extends Migration
             $table->string('senha');
             $table->string('email')->unique();
             $table->string('telefone')->nullable();
-            $table->integer('endereco_id')->unsigned();
+            $table->integer('endereco_id')->unsigned();            
             $table->foreign('endereco_id')->references('endereco_id')->on('endereco');
             $table->timestamps();
         });
