@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Usuario;
 use App\User;
-use App\Models\Endereco;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,32 +11,32 @@ class UsersTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        //
-        Endereco::create([
-            'cep' => '82471-748',
-            'logradouro' => 'Rua das Paçocas',
-            'numero' => '112',
-            'complemento' => 'Ap 131',
-            'cidade' => 'Curitiba',
-            'estado' => 'Paraná',
-            'pais' => 'Brasil'
-        ]);
-            
+    {            
+        User::create([
+            'nome' => 'Administrador',
+            'usuario' => 'admin',
+            'senha' => bcrypt('admin'),
+            'email' => 'admin@teste.com',
+            'telefone' => '(41) 1234-5678',
+            'id_endereco' => '1',
+        ]);        
 
-        Usuario::create([
+        User::create([
             'nome' => 'Bruno Onuki',
             'usuario' => 'brunoonuki',
             'senha' => bcrypt('Teste@1'),
             'email' => 'brunoonuki@teste.com',
             'telefone' => '(41) 1234-5678',
-            'endereco_id' => '13',
+            'id_endereco' => '1',
         ]);
 
         User::create([
-            'name' => 'admin',
-            'email' => 'admin@admin.com',
-            'password' => 'admin',
-        ]);        
+            'nome' => 'GoEventos Festas',
+            'usuario' => 'goeventosfestas',
+            'senha' => bcrypt('festas123'),
+            'email' => 'festas@goeventos.com',
+            'telefone' => '(41) 1234-5678',
+            'id_endereco' => '1',
+        ]);
     }
 }
